@@ -4,6 +4,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(YolcuDbContext))]
-    partial class YolcuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250619170152_yeni2")]
+    partial class yeni2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,12 +61,12 @@ namespace DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("GuvenlikKodu")
+                        .HasMaxLength(3)
                         .HasColumnType("int");
 
-                    b.Property<string>("KartNumarasi")
-                        .IsRequired()
+                    b.Property<int>("KartNumarasi")
                         .HasMaxLength(16)
-                        .HasColumnType("nvarchar(16)");
+                        .HasColumnType("int");
 
                     b.Property<string>("KartSahibi")
                         .IsRequired()
@@ -130,28 +133,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("yolcus");
-                });
-
-            modelBuilder.Entity("Entities.YolcuKarti", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("Bakiye")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BekleyenBakiye")
-                        .HasColumnType("int");
-
-                    b.Property<string>("KartAdi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("yolcuKartis");
                 });
 
             modelBuilder.Entity("Entities.GecmisBankaIslemleri", b =>

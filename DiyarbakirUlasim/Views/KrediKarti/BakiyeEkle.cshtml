@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities
+@model KrediKarti
+<form asp-action="BakiyeEkle" method="post" class="w-50 mx-auto border p-4 shadow rounded">
+    <h2>Karta bakiye ekle</h2>
+    <div class="form-group mb-3">
+        <label asp-for="KartSahibi" class="form-label"></label>
+        <input asp-for="KartSahibi" placeholder="Lütfen adınızı soyadınızı giriniz..." class="form-control"/>
+        <span asp-validation-for="KartSahibi" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="KartNumarasi" class="form-label"></label>
+        <input asp-for="KartNumarasi"  placeholder="Lütfen kart numarasını giriniz..." class="form-control" />
+        <span asp-validation-for="KartNumarasi" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="SonKullanmaTarihi" class="form-label"></label>
+        <input type="date" asp-for="SonKullanmaTarihi" placeholder="Lütfen kartınızın son kullanma tarihini giriniz..." class="form-control" />
+        <span asp-validation-for="SonKullanmaTarihi" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="GuvenlikKodu" class="form-label"></label>
+        <input asp-for="GuvenlikKodu" placeholder="Lütfen kartınızın güvenlik kodunu giriniz..." class="form-control" />
+        <span asp-validation-for="GuvenlikKodu" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Tutar" class="form-label"></label>
+        <input asp-for="Tutar" placeholder="Lütfen kartınıza eklemek istediğiniz tutarı giriniz..." class="form-control" />
+        <span asp-validation-for="Tutar" class="text-danger"></span>
+    </div>
+    @Html.HiddenFor(model => model.YolcuId)
+    <button type="submit">Karta para ekle</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

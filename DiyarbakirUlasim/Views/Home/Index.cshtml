@@ -1,8 +1,52 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    ViewData["Title"] = "Resimli Linkler";
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@{
+    ViewData["Title"] = "Resimli Linkler";
+}
+
+<style>
+    .resim-kutusu {
+        display: flex;
+        justify-content: center;
+        gap: 120px; /* Resimler arası boşluk */
+        text-align: center;
+        margin-top: 80px;
+    }
+
+        .resim-kutusu a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .resim-kutusu img {
+            width: 130px;
+            height: 130px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .resim-kutusu p {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+</style>
+
+<div class="resim-kutusu">
+    <a href="@Url.Action("KartDetay", "YolcuKarti")">
+        <img src="~/img/2.jpg" alt="Resim 1" />
+        <p>Kartım</p>
+    </a>
+    <a href="@Url.Action("KartDetay", "YolcuKarti")">
+        <img src="~/img/3.jpg" alt="Resim 2" />
+        <p>Satuş noktaları</p>
+    </a>
+    <a href="@Url.Action("BakiyeEkle", "KrediKarti")">
+        <img src="~/img/4.jpg" alt="Resim 3" />
+        <p>Bakiye işlemleri</p>
+    </a>
 </div>

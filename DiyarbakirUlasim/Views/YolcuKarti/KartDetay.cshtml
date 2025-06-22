@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities
+@model Yolcu
+
+
+@{
+    ViewData["Title"] = "Kart Detay";
+}
+
+<div style="padding: 1rem; font-family: sans-serif; background-color: #f8f8f8;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <a href="javascript:history.back()" style="text-decoration:none;">←</a>
+        <h2>Kart Detay</h2>
+        <div>
+            <button style="background: none; border: none;">Kart Ayarları ⋮</button>
+        </div>
+    </div>
+
+    <div style="background: white; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center;">
+            <img src="~/img/1.jpg" alt="Kart" style="width: 100px; border-radius: 8px;" />
+            <div style="margin-left: auto; font-size: 1.2rem; font-weight: bold;">
+                🔔 @Model.Bakiye TL
+            </div>
+        </div>
+
+        <hr style="margin: 1rem 0;" />
+
+        <div>
+            <strong>~D50DF1CC0000000</strong>
+        </div>
+
+        <div style="margin-top: 0.5rem; color: gray;">
+            TAMKART
+        </div>
+
+        <div style="margin-top: 1rem;">
+            ℹ️ <strong>Bekleyen Bakiye:</strong> 0 TL
+        </div>
+    </div>
+</div>

@@ -20,14 +20,27 @@ namespace Business
            _yolcuLogin.KayitOl(yolcu);
         }
 
-        public void Login()
+        public bool Login(Yolcu yolcu)
         {
-            throw new NotImplementedException();
+            return _yolcuLogin.Login(yolcu);
+            //throw new NotImplementedException();
         }
 
         public void Logout()
         {
             throw new NotImplementedException();
+        }
+
+        public Yolcu Profil(int id)
+        {
+            return  _yolcuLogin.Profil(id);
+            //throw new NotImplementedException();
+        }
+
+        public int sessionId(string sifre, string telefonNumarasi)
+        {
+            return _yolcuLogin.sessionId(sifre, telefonNumarasi);   
+            //throw new NotImplementedException();
         }
 
         public List<Yolcu> TumYolcular()

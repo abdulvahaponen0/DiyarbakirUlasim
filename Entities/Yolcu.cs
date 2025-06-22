@@ -27,13 +27,13 @@ namespace Entities
         public string? Sifre { get; set; }
         [Required(ErrorMessage ="Lütfen telefon numaranızı girer misiniz?")]
         [Display(Name ="Telefon numarası")]
-        [Phone]
-        public int? TelefonNumarasi { get; set; }
+        //[Phone]
+        public string? TelefonNumarasi { get; set; }
         [Required(ErrorMessage ="Lütfen adresinizi girer misiniz?")]
         [StringLength(30)]
         public string? Adres { get; set; }
         public int? Bakiye { get; set; }
-        public ICollection<KrediKarti> KrediKartis { get; set; }
-        public ICollection<GecmisBankaIslemleri> GecmisBankaIslemleris { get; set; } 
+        public ICollection<KrediKarti>? KrediKartis { get; set; }
+        public ICollection<GecmisBankaIslemleri>? GecmisBankaIslemleris { get; set; } 
     }
 }

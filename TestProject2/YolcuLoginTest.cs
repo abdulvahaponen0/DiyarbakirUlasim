@@ -31,15 +31,15 @@ namespace TestProject2
             IYolcuLogin yolcuLogin=new YolcuLogin(context);
             var yeniYolcu = new Yolcu
             {
+               
                 Ad = "Ali",
                 SoyAd = "Önen",
-                Adres = "Şeyh Şamil"
-           ,
+                Adres = "Şeyh Şamil",
                 Bakiye = 10,
-                KullanıcıKodu = 104,
+                //KullanıcıKodu = 104,
                 EMail = "tercalnn@gmail.com",
                 Sifre = "vsssdd",
-                TelefonNumarasi = 55380536
+                TelefonNumarasi = "55380536"
             };
             yolcuLogin.KayitOl(yeniYolcu);
             var yolcular=yolcuLogin.TumYolcular();
@@ -60,7 +60,7 @@ namespace TestProject2
                 KullanıcıKodu = 104,
                 EMail = "tercalnn@gmail.com",
                 Sifre = "vsssdd",
-                TelefonNumarasi = 55380536
+                TelefonNumarasi = "55380536"
             };
             yolcuLogin.KayitOl(yeniYolcu);
             //Assert

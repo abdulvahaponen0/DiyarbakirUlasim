@@ -14,5 +14,6 @@ namespace DataAccess
         public DbSet<Yolcu> yolcus { get; set; }
         public DbSet<KrediKarti> krediKartis { get; set; }  
         public DbSet<GecmisBankaIslemleri> gecmisBankaIslemleris { get; set; }
+        public DbSet<YolcuKarti> yolcuKartis { get;set; }   
     }
 }

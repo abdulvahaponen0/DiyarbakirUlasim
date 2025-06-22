@@ -35,7 +35,7 @@ namespace TestProject2
                 KullanıcıKodu = 104,
                 EMail = "tercalnn@gmail.com",
                 Sifre = "vsssdd",
-                TelefonNumarasi = 55380536
+                TelefonNumarasi = "55380536"
             };
             yolcuLoginBusiness.KayitOl(yeniYolcu);
             var all = yolcuLoginBusiness.TumYolcular();

@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Başlık"] = "Kullanıcı Kayıt";
+}
+@using Entities
+@model Yolcu
+<form asp-action="Login" method="post" class="w-50 mx-auto border p-4 shadow rounded">
+    <h1>Lütfen giriş yapınız.</h1>
+    <div class="form-group mb-3">
+        <label asp-for="TelefonNumarasi" class="form-label"></label>
+        <input asp-for="TelefonNumarasi" placeholder="Lütfen telefon numarasını giriniz." class="form-control" />
+        <span asp-validation-for="TelefonNumarasi" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Sifre" class="form-label"></label>
+        <input asp-for="Sifre" placeholder="Lütfen şifreyi giriniz." class="form-control" />
+        <span asp-validation-for="Sifre" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg rounded-pill shadow">Giriş yapınız</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<a href="@Url.Action("YolcuEkle", "Yolcu")" style="margin-top:50px; margin-left:350px;" class="btn btn-success btn-lg rounded-pill shadow">Kayıt Ol</a>

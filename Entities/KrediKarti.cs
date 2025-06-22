@@ -12,17 +12,17 @@ namespace Entities
         public int Id { get; set; }
         [Required(ErrorMessage = "Lütfen isiminizi soyadınızı girer misiniz?")]
         [StringLength(30)]
-        public string KartSahibi { get; set; }
+        public string? KartSahibi { get; set; }
         [Required(ErrorMessage ="Lütfen 16 numaralı kart numarasını girer misiniz?")]
-        [StringLength(16)]
+        [StringLength(16,ErrorMessage ="Kart numarası 16 haneli olmalıdır.")]
         [DataType(DataType.CreditCard)]
-        public int KartNumarasi  { get; set; }
+        public string? KartNumarasi  { get; set; }
         [Required(ErrorMessage ="Lütfen tarihi girer misiniz?")]
         [Display(Name ="Son kullanma tarihi")]
         [DataType(DataType.Date)]
         public  DateTime SonKullanmaTarihi { get; set; }
         [Required(ErrorMessage ="Lütfen güvenlik kodunu girer misiniz?")]
-        [StringLength (3)]
+        [Range(100, 999, ErrorMessage = "Güvenlik kodu 3 haneli olmalıdır.")]
         public int GuvenlikKodu { get; set; }
         public int? Tutar { get; set; }
         public int? YolcuId { get; set; }

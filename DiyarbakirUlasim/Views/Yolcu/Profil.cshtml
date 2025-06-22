@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities
+@model Yolcu
+
+<div class="container mt-5">
+    <div class="card shadow p-4 text-center">
+        <h2 class="text-primary mb-3">Profil bilgileri</h2>
+        <p class="lead text-muted">Ad: @Model.Ad</p>
+        <p class="lead text-muted">Soyad: @Model.SoyAd</p>
+        <p class="lead text-muted">Email: @Model.EMail</p>
+        <p class="lead text-muted">Telefon numarası: @Model.TelefonNumarasi</p>
+        <p class="lead text-muted">Adres: @Model.Adres</p>
+        <p class="lead text-muted">Şifre: @Model.Sifre</p>
+        <p class="lead text-muted">Bakiye: @($"{Model.Bakiye:N2} ₺")</p>
+    </div>
+</div>

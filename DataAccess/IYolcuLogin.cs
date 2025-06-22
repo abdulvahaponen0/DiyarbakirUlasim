@@ -11,7 +11,9 @@ namespace DataAccess
     {
         public void KayitOl(Yolcu yolcu);
         public List<Yolcu> TumYolcular();
-        public void Login();
+        public bool Login(Yolcu yolcu);
         public void Logout();
+        public int sessionId(string sifre,string telefonNumarasi);
+        public Yolcu Profil(int id);
     }
 }
