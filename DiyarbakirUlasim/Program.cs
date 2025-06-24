@@ -18,6 +18,12 @@ builder.Services.AddScoped<IKrediKartiIslemleri,KrediKartiIslemleri>();
 builder.Services.AddScoped<IKrediKArtiIslemleriBusiness,KrediKArtiIslemleriBusiness>();
 builder.Services.AddScoped<IKartDataAccess,KartDataAccess>();
 builder.Services.AddScoped<IKartBusiness,KartBusines>();
+builder.Services.AddScoped<IHatlarRepository,HatlarRepository>();
+builder.Services.AddScoped<IHatlarBusiness,HatlarBusiness>();
+builder.Services.AddScoped<IKayipEsyaDataAccess,KayipEsyaDataAccess>();
+builder.Services.AddScoped<IKayipEsyaBusiness,KayipEsyaBusiness>();
+builder.Services.AddScoped<IIletisimDataAccess,IletisimDataAccess>();
+builder.Services.AddScoped<IIletisimBusiness,IletisimBusiness>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

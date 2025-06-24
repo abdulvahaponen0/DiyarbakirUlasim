@@ -4,6 +4,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(YolcuDbContext))]
-    partial class YolcuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250623083309_y9")]
+    partial class y9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,27 +52,6 @@ namespace DataAccess.Migrations
                     b.ToTable("gecmisBankaIslemleris");
                 });
 
-            modelBuilder.Entity("Entities.HareketSaatleri", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<TimeSpan>("HareketSaati")
-                        .HasColumnType("time");
-
-                    b.Property<int>("HatlarId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HatlarId");
-
-                    b.ToTable("hareketSaatlers");
-                });
-
             modelBuilder.Entity("Entities.Hatlar", b =>
                 {
                     b.Property<int>("Id")
@@ -88,98 +70,12 @@ namespace DataAccess.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("HareketSaatleriId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("hatlars");
-                });
-
-            modelBuilder.Entity("Entities.Iletisim", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AdSoyad")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TelefonNumarasi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("YolcuId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Yorum")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("YolcuId");
-
-                    b.ToTable("ıletisims");
-                });
-
-            modelBuilder.Entity("Entities.KayipEsya", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AdSoyad")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HatAdi")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("IndiginizDurak")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Not")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tanim")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TelefonNumarasi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("Zaman")
+                    b.Property<TimeSpan>("HareketSaati")
                         .HasColumnType("time");
 
                     b.HasKey("Id");
 
-                    b.ToTable("kayipEsyas");
+                    b.ToTable("hatlars");
                 });
 
             modelBuilder.Entity("Entities.KrediKarti", b =>
@@ -296,26 +192,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Yolcu");
                 });
 
-            modelBuilder.Entity("Entities.HareketSaatleri", b =>
-                {
-                    b.HasOne("Entities.Hatlar", "Hatlar")
-                        .WithMany("hareketSaatleri")
-                        .HasForeignKey("HatlarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hatlar");
-                });
-
-            modelBuilder.Entity("Entities.Iletisim", b =>
-                {
-                    b.HasOne("Entities.Yolcu", "Yolcu")
-                        .WithMany("Iletisim")
-                        .HasForeignKey("YolcuId");
-
-                    b.Navigation("Yolcu");
-                });
-
             modelBuilder.Entity("Entities.KrediKarti", b =>
                 {
                     b.HasOne("Entities.Yolcu", "Yolcu")
@@ -325,16 +201,9 @@ namespace DataAccess.Migrations
                     b.Navigation("Yolcu");
                 });
 
-            modelBuilder.Entity("Entities.Hatlar", b =>
-                {
-                    b.Navigation("hareketSaatleri");
-                });
-
             modelBuilder.Entity("Entities.Yolcu", b =>
                 {
                     b.Navigation("GecmisBankaIslemleris");
-
-                    b.Navigation("Iletisim");
 
                     b.Navigation("KrediKartis");
                 });

@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities
+@model Iletisim
+<form asp-action="Ekle" method="post">
+    <h2>Lütfen iletmek istediğiniz mesajı giriniz</h2>
+    <div class="form-group mb-3">
+        <label asp-for="AdSoyad" class="form-label"></label>
+        <input asp-for="AdSoyad" placeholder="Lütfen adınız giriniz..." class="form-control" />
+        <span asp-validation-for="AdSoyad" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" placeholder="Lütfen email adresinizi giriniz..." class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="TelefonNumarasi" class="form-label"></label>
+        <input asp-for="TelefonNumarasi" placeholder="Lütfen telefon numaranızı giriniz..." class="form-control" />
+        <span asp-validation-for="TelefonNumarasi" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Yorum" class="form-label"></label>
+        <input asp-for="Yorum" placeholder="Lütfen yorumunuzu giriniz..." class="form-control" />
+        <span asp-validation-for="Yorum" class="text-danger"></span>
+    </div>
+    <button type="submit">Mesajı gönderiniz</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

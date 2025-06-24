@@ -18,7 +18,7 @@ namespace Business
 
         public Yolcu kartDetay(int yolcuSessionID)
         {
-            Yolcu yolcu1 = new Yolcu();
+            
             try
             {
                 var yolcu=_context.yolcus.FirstOrDefault(x=>x.Id==yolcuSessionID);

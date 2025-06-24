@@ -4,6 +4,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(YolcuDbContext))]
-    partial class YolcuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250624083157_m1")]
+    partial class m1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,17 +120,12 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("YolcuId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Yorum")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("YolcuId");
 
                     b.ToTable("ıletisims");
                 });
@@ -307,15 +305,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Hatlar");
                 });
 
-            modelBuilder.Entity("Entities.Iletisim", b =>
-                {
-                    b.HasOne("Entities.Yolcu", "Yolcu")
-                        .WithMany("Iletisim")
-                        .HasForeignKey("YolcuId");
-
-                    b.Navigation("Yolcu");
-                });
-
             modelBuilder.Entity("Entities.KrediKarti", b =>
                 {
                     b.HasOne("Entities.Yolcu", "Yolcu")
@@ -333,8 +322,6 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Yolcu", b =>
                 {
                     b.Navigation("GecmisBankaIslemleris");
-
-                    b.Navigation("Iletisim");
 
                     b.Navigation("KrediKartis");
                 });

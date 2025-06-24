@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities
+@model List<Hatlar>
+
+<div class="container mt-4">
+    <h4 class="mb-3 fw-bold">Tüm Hatlar</h4>
+
+    @foreach (var hat in Model)
+    {
+        <div class="d-flex align-items-center p-3 bg-white rounded shadow-sm mb-3 border">
+            <i class="fas fa-bus fa-lg me-3 text-primary"></i>
+            <div>
+                <a href="@Url.Action("Index", "HareketSaatleri", new { id = hat.Id })">
+                   <div class="fw-semibold">@hat.Adi</div>
+                <small class="text-muted">@hat.Guzergah</small>
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+

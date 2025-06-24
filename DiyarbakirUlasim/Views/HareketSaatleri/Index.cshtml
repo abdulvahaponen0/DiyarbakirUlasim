@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities
+@model List<HareketSaatleri>
+
+<div>
+    <ul class="tablar">
+        <li class=" "Hafta içi" ? "aktif" : "")">Hafta içi</li>
+        <li class="">Cumartesi</li>
+        <li class="">Pazar</li>
+    </ul>
+</div>
+
+<table class="saat-tablosu">
+    <tbody>
+        @foreach (var saatGrubu in Model)
+        {
+            <tr>
+                    <td class="saat-baslik">@saatGrubu.Id</td>
+                    <td class="saat-hucre">@saatGrubu.HareketSaati</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .tablar {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .tablar li {
+        padding: 8px 16px;
+        background-color: #eee;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .tablar li.aktif {
+        background-color: #3498db;
+        color: white;
+    }
+
+    .saat-tablosu {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    .saat-baslik {
+        background-color: #3498db;
+        color: white;
+        padding: 8px;
+        text-align: center;
+        width: 40px;
+    }
+
+    .saat-hucre {
+        padding: 8px;
+        text-align: center;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+</style>

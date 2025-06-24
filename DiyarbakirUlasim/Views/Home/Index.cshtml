@@ -50,3 +50,45 @@
         <p>Bakiye işlemleri</p>
     </a>
 </div>
+
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <a href="@Url.Action("Index", "Hatlar")" class="text-decoration-none text-dark">
+            <div class="card shadow-sm p-4">
+                  <i class="bi bi-clock" style="font-size: 2rem; color: #007bff;"></i>
+                  <h5 class="mt-3">Hat Hareket Saatleri</h5>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-4">
+            <a href="/Hat/HareketSaatleri" class="text-decoration-none text-dark">
+            <div class="card shadow-sm p-4">
+                <i class="bi bi-bus-front" style="font-size: 2rem; color: #007bff;"></i>
+                <h5 class="mt-3">Otobüsüm Nerede</h5>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-4">
+            <a href="/Hat/HareketSaatleri" class="text-decoration-none text-dark">
+            <div class="card shadow-sm p-4">
+                <i class="bi bi-signpost-split" style="font-size: 2rem; color: #007bff;"></i>
+                <h5 class="mt-3">Duraklar</h5>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-4">
+            <a href="/Hat/HareketSaatleri" class="text-decoration-none text-dark">
+            <div class="card shadow-sm p-4">
+                <i class="bi bi-star" style="font-size: 2rem; color: #007bff;"></i>
+                <h5 class="mt-3">Favoriler</h5>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>

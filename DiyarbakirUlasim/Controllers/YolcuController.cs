@@ -43,7 +43,7 @@ namespace DiyarbakirUlasim.Controllers
                     int yolcuId=_yolcuLoginBusiness.sessionId(yolcu.Sifre,yolcu.TelefonNumarasi);
                     HttpContext.Session.SetInt32("yolcuId", yolcuId);
 
-                return RedirectToAction("Hosgeldin");
+                return RedirectToAction("Index","Home");
                 }
             //ViewBag.Session = HttpContext.Session.GetInt32("yolcuId");
             ViewBag.Error = "Telefon numarası veya şifre yanlış";

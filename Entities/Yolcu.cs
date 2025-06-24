@@ -35,5 +35,6 @@ namespace Entities
         public int? Bakiye { get; set; }
         public ICollection<KrediKarti>? KrediKartis { get; set; }
         public ICollection<GecmisBankaIslemleri>? GecmisBankaIslemleris { get; set; } 
+        public ICollection<Iletisim>? Iletisim { get; set; }
     }
 }
