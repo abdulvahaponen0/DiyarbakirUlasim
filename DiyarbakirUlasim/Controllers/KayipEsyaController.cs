@@ -23,7 +23,11 @@ namespace DiyarbakirUlasim.Controllers
         [HttpPost]
         public IActionResult Ekle(KayipEsya kayipEsya) { 
             _kayipEsyaBusiness.ekle(kayipEsya);
-          return RedirectToAction("Index","Home");
+          return RedirectToAction("Sonuc");
+        }
+        [HttpGet]
+        public IActionResult Sonuc() {
+        return View();
         }
     }
 }

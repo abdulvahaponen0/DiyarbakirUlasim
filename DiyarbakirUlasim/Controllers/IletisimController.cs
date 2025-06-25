@@ -55,8 +55,17 @@ namespace DiyarbakirUlasim.Controllers
             {
                 throw new Exception("Hata: "+ex.ToString());
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("MesajAlindi");
             //return View();
+        }
+        [HttpGet]
+        public IActionResult MesajAlindi() {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Hakkimizda()
+        {
+            return View();
         }
     }
 }
